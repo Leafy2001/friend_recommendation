@@ -59,7 +59,6 @@ foreach($height as $key=>$value){
     array_push($ans[$my_height], $element);
 }
 
-$friends_shown = 0;
 for($j = 2; array_key_exists($j, $ans) == 1; $j++){
     echo "<b>Level ".($j-1)." friend suggestions : </b><br/>";
     foreach($ans[$j] as $my_height=>$element){
@@ -71,7 +70,6 @@ for($j = 2; array_key_exists($j, $ans) == 1; $j++){
         }
         $row = mysqli_fetch_assoc($result);
         $img = $row['user_image'];
-        $friends_shown++;
         ?>
         <figure style="display:inline-block">
             <img src = "./includes/images/<?php echo $img; ?>" width=100/>
@@ -82,25 +80,5 @@ for($j = 2; array_key_exists($j, $ans) == 1; $j++){
         <?php
     }echo "<br/>";
 }
-if($friends_shown == 0){
-    ?>
-    <h3>You dont have any friends yet. </h3>
-    <?php
-    $query = "SELECT * FROM users LIMIT 50;";
-    $result = mysqli_query($connection, $query);
-    if(!$result){
-        die("ERROR ".mysqli_error($connection));
-    }
-    while($row = mysqli_fetch_assoc($result)){
-        $img = $row['user_image'];
-        ?>
-        <figure style="display:inline-block">
-            <img src = "./includes/images/<?php echo $img; ?>" width=100/>
-            <a href = "profile.php?profile_id=<?php echo $row['user_id']; ?>">
-                <figcaption><?php echo $row['username']; ?></figcaption>
-            </a>
-        </figure>
-        <?php
-    }
-}
+
 ?>

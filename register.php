@@ -28,8 +28,8 @@ if(isset($_POST['register'])){
         header("Location: register.php");
         die;
     }
-    $query = "INSERT INTO users (username, user_email, user_password) VALUES ";
-    $query .= "('$username', '$user_email', '$user_password');";
+    $query = "INSERT INTO users (username, user_email, user_password, user_firstname, user_lastname) VALUES ";
+    $query .= "('$username', '$user_email', '$user_password', 'F_NAME', 'L_NAME');";
     $result = mysqli_query($connection, $query);
     if(!$result){
         // header("Location: register.php");

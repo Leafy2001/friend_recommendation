@@ -3,6 +3,21 @@ if(!isset($_SESSION['user_id'])){
     header("Location: login.php");
     die;
 }
+
+$current_user_id = $_SESSION['user_id'];
+if(isset($_GET['accept_id'])){
+    $accept_id = $_GET['accept_id'];
+    $query = "UPDATE relationship SET request_accepted = 1 WHERE ";
+    $query .= "request_by = $accept_id AND request_to = $current_user_id;";
+    
+    $result = mysqli_query($connection, $query);
+    if(!$result){
+        echo $query;
+        die("ERROR ".mysqli_error($connection));
+    }
+    header("Location: friend_requests.php");
+    die;
+}
 ?>
 
 <body>
@@ -25,30 +40,11 @@ if(!isset($_SESSION['user_id'])){
     <h3><?php echo $_SESSION['user_firstname']." ".$_SESSION['user_lastname']; ?></h3>
     <img src = "./includes/images/<?php echo $_SESSION['user_image']; ?>" width=50/>
     <div>
-        <h2>Current Friends : </h2>
+        <h2>Friend Requests : </h2>
         <?php 
             $user_id = $_SESSION['user_id'];
-            $query = "SELECT * FROM relationship INNER JOIN users ON users.user_id = relationship.request_to "; 
-            $query .= "WHERE (request_by = $user_id AND request_to != $user_id AND request_accepted = 1);";
-            $result = mysqli_query($connection, $query);
-            if(!$result){
-                echo $query;
-                die("ERROR ".mysqli_error($connection));
-            }
-            while($row = mysqli_fetch_assoc($result)){
-                $img = $row['user_image'];
-                ?>
-                <figure style="display:inline-block">
-                    <img src = "./includes/images/<?php echo $img; ?>" width=100/>
-                    <a href = "profile.php?profile_id=<?php echo $row['user_id']; ?>">
-                        <figcaption><?php echo $row['username']; ?></figcaption>
-                    </a>
-                </figure>
-        <?php
-            }
-
             $query = "SELECT * FROM relationship INNER JOIN users ON users.user_id = relationship.request_by "; 
-            $query .= "WHERE (request_by != $user_id AND request_to = $user_id AND request_accepted = 1);";
+            $query .= "WHERE (request_to = $user_id AND request_accepted = 0);";
             $result = mysqli_query($connection, $query);
             if(!$result){
                 echo $query;
@@ -62,6 +58,7 @@ if(!isset($_SESSION['user_id'])){
                     <a href = "profile.php?profile_id=<?php echo $row['user_id']; ?>">
                         <figcaption><?php echo $row['username']; ?></figcaption>
                     </a>
+                    <a href="friend_requests.php?accept_id=<?php echo $row['user_id']; ?>">Accept Request</a>
                 </figure>
         <?php
             }
