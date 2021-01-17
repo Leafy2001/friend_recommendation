@@ -1,3 +1,6 @@
+<?php include "./includes/header.php" ?>
+<head><link rel="stylesheet" href="./includes/css/register.css"></head>
+
 <?php ob_start(); session_start(); ?>
 <?php include "./includes/db.php"; ?>
 
@@ -40,35 +43,48 @@ if(isset($_POST['register'])){
 }
 
 ?>
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5">
+                    <form action = "" method = "post">
+                        <div class="row px-3">
+                          <label for="title">Username</label>
+                          <input type="text" class="form-control" name="username" placeholder="Enter your username" required/>
+                        </div>
+                        <div class="row px-3">
+                          <label for="title">Email</label>
+                          <input type="text" class="form-control" name="user_email" placeholder="Enter your email" required/>
+                        </div>
+                        <div class="row px-3">
+                          <label for="title">Password</label>
+                          <input type="text" class="form-control" name = "user_password" placeholder="Enter password" required/>
+                        </div>
+                        <div class="row px-3">
+                          <label for="title">Confirm Password</label>
+                          <input type="text" class="form-control" name = "confirm_user_password" placeholder="Re Enter password" required/>
+                        </div>
+                        <br/>
+                        <div class="row mb-3 px-3">
+                            <button type="submit" class="btn btn-blue text-center" name = 'register' value = 'REGISTER'>Register</button>
+                        </div>
+                    </form>
+                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Already have an account?
+                        <a class="text-danger" href = "login.php">Login</a></small>
+                    </div>
 
-<body>
-    <form action="" method = "post">
-        <div class="form-group">
-            <label for="title">Username</label>
-            <input type="text" class="form-control" name="username" required/>
+                </div>
+            </div>
         </div>
-        
-        <div class="form-group">
-            <label for="title">Email</label>
-            <input type="text" class="form-control" name="user_email" required/>
+        <div class="bg-blue py-4">
+            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2020. All rights reserved.</small>
         </div>
-
-        <div class="form-group">
-            <label for="title">Password</label>
-            <input type="text" class="form-control" name = "user_password" required/>
-        </div>
-
-        <div class="form-group">
-            <label for="title">Confirm Password</label>
-            <input type="text" class="form-control" name = "confirm_user_password" required/>
-        </div>
-
-        <div class = "form-group">
-            <input class = 'btn btn-primary' type='submit' name = 'register' value = 'REGISTER'/>
-        </div>
-    </form>
-    <div class="row mb-4 px-3"> <small class="font-weight-bold">Already have an account? 
-        <a class="text-danger" href = "login.php">Login</a></small> 
     </div>
-
-</body>
+</div>

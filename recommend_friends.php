@@ -1,3 +1,4 @@
+<head><link rel="stylesheet" href="./includes/css/index.css">
 <?php
 function print_var($x){echo "<pre>";var_dump($x);echo "</pre>";}
 $edges = array();
@@ -27,7 +28,7 @@ $height = array();
 
 function bfs($start){
     global $edges, $height;
-    
+
     $queue = array();
     array_push($queue, $start);
     $height[$start] = 0;
@@ -60,7 +61,7 @@ foreach($height as $key=>$value){
 }
 
 for($j = 2; array_key_exists($j, $ans) == 1; $j++){
-    echo "<b>Level ".($j-1)." friend suggestions : </b><br/>";
+    echo '<h4 class="sf">Level '.($j-1).":</h4><br/>";
     foreach($ans[$j] as $my_height=>$element){
         $friend_id = $element;
         $query = "SELECT * FROM users WHERE user_id = $friend_id;";
@@ -71,7 +72,7 @@ for($j = 2; array_key_exists($j, $ans) == 1; $j++){
         $row = mysqli_fetch_assoc($result);
         $img = $row['user_image'];
         ?>
-        <figure style="display:inline-block">
+        <figure class=" grid-item ">
             <img src = "./includes/images/<?php echo $img; ?>" width=100/>
             <a href = "profile.php?profile_id=<?php echo $row['user_id']; ?>">
                 <figcaption><?php echo $row['username']; ?></figcaption>

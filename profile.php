@@ -1,3 +1,6 @@
+<head><link rel="stylesheet" href="./includes/css/register.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
 <?php include "./includes/header.php"; ?>
 <?php
 
@@ -24,7 +27,7 @@ if(isset($_GET['addfriend_id'])){
     $add_friend_id = $_GET['addfriend_id'];
     $query = "INSERT INTO relationship (request_by, request_to, request_accepted) VALUES ";
     $query .= "($current_user_id, $add_friend_id, 0);";
-    
+
     $result = mysqli_query($connection, $query);
     if(!$result){
         echo $query;
@@ -38,7 +41,7 @@ if(isset($_GET['accept_id'])){
     $accept_id = $_GET['accept_id'];
     $query = "UPDATE relationship SET request_accepted = 1 WHERE ";
     $query .= "request_by = $accept_id AND request_to = $current_user_id;";
-    
+
     $result = mysqli_query($connection, $query);
     if(!$result){
         echo $query;
@@ -63,13 +66,19 @@ if(isset($_GET['profile_id'])){
 <body>
     <?php include "./includes/navigation.php"; ?>
     <br/>
-    <figure>
-        <img src = "./includes/images/<?php echo $row['user_image']; ?>" width = 300/>
-        <figcaption><?php echo $username; ?></figcaption>
-    </figure>
-    <h1><?php echo $username; ?></h1>
-    <h2><?php echo $row['user_firstname']." ".$row['user_lastname']; ?></h2>
-    <h2><?php echo $row['user_email']; ?></h2>
+    <div class="CurrentUser">
+      <div class="CurrentUser__left">
+          <img class="CurrentUser__leftImg" src = "./includes/images/<?php echo $row['user_image']; ?>" width = 500/>
+
+      </div>
+      <div class="CurrentUser__right">
+        <h1><?php echo $username; ?></h1>
+        <h2><?php echo $row['user_firstname']." ".$row['user_lastname']; ?></h2>
+        <h2><?php echo $row['user_email']; ?></h2>
+      </div>
+
+    </div>
+
     <?php
         $query = "SELECT * FROM relationship WHERE ";
         $query .= "(request_by = $current_user_id AND request_to = $profile_id AND request_accepted = 0);";
@@ -109,16 +118,16 @@ if(isset($_GET['profile_id'])){
                         if($profile_id == $current_user_id){
 
                         }else{ ?>
-                            <a href = "profile.php?addfriend_id=<?php echo $profile_id; ?>">ADD FRIEND</a>
+                            <a class="btn btn-nav text-center af" href = "profile.php?addfriend_id=<?php echo $profile_id; ?>">ADD FRIEND</a>
                 <?php   }
-                        
+
                     }
                 }
             }
         }
     ?>
-            
+
 
 </body>
 
-<?php include "./includes/footer.php"; 
+<?php include "./includes/footer.php";
