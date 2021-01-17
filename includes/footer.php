@@ -1,8 +1,9 @@
         <!-- Footer -->
+        <head><link rel="stylesheet" href="./includes/css/index.css">
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p class="cc">Copyright &copy; Company 2020</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

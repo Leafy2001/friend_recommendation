@@ -1,0 +1,132 @@
+.ti{
+display: block;
+text-align: center;
+}
+.fc{
+  width: 500px!important;
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-submit {
+    background-color: lightblue ;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px;
+    display: inherit !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-submit:hover {
+  color: white;
+    background-color: blue;
+    cursor: pointer;
+}
+.pro{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+}
+.pro__img{
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.pro__upload{
+padding-left: 630px;
+
+
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+.pro{
+  position: relative;
+  left: 220px;
+  font-size: 2rem;
+}
+.pro__upload{
+  font-size: 2.5rem;
+  position: relative;
+  right: 450px;
+}
+.ti{
+  font-size: 2rem;
+  position: relative;
+  left: 200px;
+}
+.fc{
+  font-size: 2rem!important  ;
+  position: relative;
+  left: 150px;
+}
+.btn-submit{
+  font-size: 2rem!important;
+  position: relative;
+  left: 190px;
+  margin-top: 50px;
+}
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+.pro{
+  position: relative;
+  left: 100px;
+  font-size: 2rem;
+}
+.pro__upload{
+  font-size: 2.5rem;
+  position: relative;
+  right: 400px;
+}
+.ti{
+  font-size: 2rem;
+  position: relative;
+  left: 100px;
+}
+.fc{
+  font-size: 2rem!important  ;
+  position: relative;
+  left: 110px;
+}
+.btn-submit{
+  font-size: 2rem!important;
+  position: relative;
+  left: 100px;
+  margin-top: 50px;
+}
+}
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1224px) {
+/* Styles */
+.pro{
+  position: relative;
+  left: 60px;
+  font-size: 2rem;
+}
+.pro__upload{
+  font-size: 2.5rem;
+  position: relative;
+  right: 330px;
+}
+.ti{
+  font-size: 2rem;
+  position: relative;
+  left: 60px;
+}
+.fc{
+  font-size: 2rem!important  ;
+  position: relative;
+  left: 80px;
+}
+.btn-submit{
+  font-size: 2rem!important;
+  position: relative;
+  left: 80px;
+  margin-top: 50px;
+}
+}

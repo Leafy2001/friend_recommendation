@@ -58,27 +58,27 @@
             <div class="col-lg-6">
                 <div class="card2 card border-0 px-4 py-5">
                     <form action = "" method = "post">
-                        <div class="row px-3"> 
-                            <label class="mb-1"><h6 class="mb-0 text-sm">Email Address</h6></label> 
-                            <input class="mb-4" type="text" name="user_email" placeholder="Enter a valid email address"> 
+                        <div class="row px-3">
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Email Address</h6></label>
+                            <input class="mb-4" type="text" name="user_email" placeholder="Enter a valid email address">
                         </div>
                         <div class="row px-3">
-                            <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label> 
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label>
                             <input type="password" name="user_password" placeholder="Enter password" />
                         </div>
                         <br/>
-                        <div class="row mb-3 px-3"> 
+                        <div class="row mb-3 px-3">
                             <button type="submit" class="btn btn-blue text-center" name = "login">Login</button>
                         </div>
                     </form>
-                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? 
-                        <a class="text-danger" href = "register.php">Register</a></small> 
+                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account?
+                        <a class="text-danger" href = "register.php">Register</a></small>
                     </div>
                 </div>
             </div>
         </div>
         <div class="bg-blue py-4">
-            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2020. All rights reserved.</small>
         </div>
     </div>
 </div>
